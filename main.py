@@ -1,8 +1,9 @@
 from start_game import start_game
+from tests.run_tests import run_tests
 
 if __name__ == '__main__':
     if not run_tests():
-        return False
+        exit(84)
     print("Petite partie de pendu ? (oui/non)")
     still_playing = input()
     while still_playing.lower() == 'o' or still_playing.lower() == 'oui':
