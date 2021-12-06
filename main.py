@@ -6,7 +6,7 @@ if __name__ == '__main__':
         exit(84)
     print("Petite partie de pendu ? (oui/non)")
     still_playing = input()
-    while still_playing.lower() == 'o' or still_playing.lower() == 'oui':
+    while still_playing.lower() == 'o' or still_playing.lower() == 'oui' or still_playing.lower() == 'uiii':
         start_game()
         print("Petite partie de pendu ? (oui/non)")
         still_playing = input()

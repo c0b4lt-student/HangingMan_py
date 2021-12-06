@@ -31,7 +31,7 @@ def make_guess(guessed_chars, random_word):
 def hide_word(clear_hidden_word, guessed_char):
     hidden_word = ''
     for char in clear_hidden_word:
-        if tabcnt(guessed_char, char) or guessed_char == '\n':
+        if tabcnt(guessed_char, char):
             hidden_word += char
         else:
             hidden_word += '*'
@@ -53,10 +53,14 @@ def start_game():
     random_word = pick_word()
     hidden_word = hide_word(random_word, guessed_chars)
     print("Un mot secret à été choisi !")
-    while not is_word_found(random_word, guessed_chars) and tries < 6:
+    while not is_word_found(random_word, guessed_chars) and tries <= 6:
         print("Le mot secret est : %s" % hidden_word)
         if not make_guess(guessed_chars, random_word):
             draw_hangman(tries)
             tries += 1
         else:
             hidden_word = hide_word(random_word, guessed_chars)
+    if tries > 6:
+        print("Vous avez perdu le bon mot était %s" % random_word)
+    else:
+        print("Bien joué le mot était bien %s \n\n" % hidden_word)

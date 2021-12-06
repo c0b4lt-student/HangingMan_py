@@ -18,4 +18,4 @@ def pick_word():
     while i < random_number:
         random_line = fr_list.readline()
         i += 1
-    return random_line.lower()
+    return random_line.lower().replace('\n', '')
